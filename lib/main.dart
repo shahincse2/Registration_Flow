@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:registration_flow/features/auth/presentation/screens/sign_up_screen.dart';
 import 'core/theme/app_theme.dart';
-import 'features/auth/presentation/screens/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Registration Flow',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const SignInScreen(),
+      home: const SignUpScreen(),
     );
   }
 }

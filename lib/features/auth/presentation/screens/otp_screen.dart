@@ -73,12 +73,8 @@ class _OtpScreenState extends State<OtpScreen> {
       Messenger.showErrorMessage(context, AppStrings.enterOtp);
       return;
     }
-
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(AppStrings.enteredOtp + " $otp")));
+    Messenger.showSuccessMessage(context, "${AppStrings.enterOtp} $otp");
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -154,11 +150,7 @@ class _OtpScreenState extends State<OtpScreen> {
             const SizedBox(height: 20),
 
             /// 🔥 VERIFY BUTTON
-            AuthButton(
-              isLoading: false,
-              onPressed: verifyOtp,
-              text: "VERIFY",
-            ),
+            AuthButton(isLoading: false, onPressed: verifyOtp, text: "VERIFY"),
 
             const SizedBox(height: 20),
 
@@ -176,7 +168,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   child: Text(
                     "Resend OTP",
                     style: TextStyle(
-                      color: canResend ? AppColors.white : AppColors.disableText,
+                      color: canResend
+                          ? AppColors.white
+                          : AppColors.disableText,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -188,6 +182,7 @@ class _OtpScreenState extends State<OtpScreen> {
       ),
     );
   }
+
   @override
   void dispose() {
     for (var c in controllers) {
